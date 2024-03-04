@@ -6,16 +6,20 @@
 This is a tool to automatically track which piece of code created your data.
 
 In particular, every time you save a numpy array or a torch tensor, this tool
-will automatically create a file with metadata about the code that created the data.
+will automatically create a file with metadata about the code that created the data. For example:
 
 ```bash
 .
 ├── data.npy
-└── .data.npy.who
+├── .data.npy.who
+├── ...
+├── weights.pt
+└── .weights.pt.who
 ```
 
+The `who` dotfiles are stored in plaintext, so you can open them in your favorite IDE or directly `cat`/[`bat`](https://github.com/sharkdp/bat) them:
 ```bash
-cat .data.npy.who
+bat .data.npy.who
 ───────┬─────────────────────────────────────────────────────────────────────
        │ File: .data.npy.who
 ───────┼─────────────────────────────────────────────────────────────────────
@@ -77,4 +81,8 @@ For now, this lightweight module only supports monkey-patching the `.save()`
 methods in `numpy` and `torch`.
 
 ---
-Images in README created with DALL-E.
+This was me before I started using `whocreateme`:
+![confused](assets/logo.webp)
+
+---
+All images in the README were created with DALL-E.
